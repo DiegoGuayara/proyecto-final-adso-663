@@ -1,0 +1,26 @@
+{
+  "name": "proyecto-final-adso-663",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DiegoGuayara/proyecto-final-adso-663.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DiegoGuayara/proyecto-final-adso-663/issues"
+  },
+  "homepage": "https://github.com/DiegoGuayara/proyecto-final-adso-663#readme",
+  "description": "",
+  "dependencies": {
+    "@types/express": "^5.0.1",
+    "dotenv": "^16.4.7",
+    "express": "^5.1.0",
+    "mysql2": "^3.14.0"
+  }
+}
