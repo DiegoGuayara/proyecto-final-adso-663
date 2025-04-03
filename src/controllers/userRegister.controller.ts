@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import pool from "../connections/pool";
+import pool from "../config/config-db";
 
 //Obtener usuarios
 export const obtenerUsuarios = async (req: Request, res: Response) => {
