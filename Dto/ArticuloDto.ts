@@ -1,4 +1,4 @@
-interface personaDto {
+interface ArticuloDto {
     id_articulo: number;
     id_categoria:number;
     codigo: string;
