@@ -1,28 +1,54 @@
 import { Request, Response } from "express";
-import Auth from '../Dto/AuthDto';
-import UserService from '../services/UserServices';
-import generateToken from '../Helpers/generateToken';
+import { AuthDto } from "../Dto/AuthDto";
+import { UserService } from "../services/UserServices";
+import jwt from "jsonwebtoken";
 import dotenv from "dotenv";
 dotenv.config();
 
+export class AuthController {
+  static async login(req: Request, res: Response) {
+    try {
+      const { email, password } = req.body;
+      const authDto = new AuthDto(email, password);
+      const login = await UserService.login(authDto);
 
-let auth = async (req: Request, res: Response) => {
-  try {
-    const { email, password } = req.body;
-    const login = await UserService.login(new Auth(email, password));
-    if (login.logged) {
-      return res.status(200).json({
+      if (login.logged) {
+        const token = jwt.sign(
+          { id: login.id },
+          process.env.JWT_SECRET || "your-secret-key",
+          { expiresIn: "1h" }
+        );
+
+        return res.status(200).json({
+          status: login.status,
+          token: token,
+        });
+      }
+
+      return res.status(401).json({
         status: login.status,
-        token: generateToken({id: login.id}, process.env.KEY_TOKEN, 5)
+      });
+    } catch (error) {
+      console.error("Error en el login:", error);
+      return res.status(500).json({
+        status: "Error interno del servidor",
       });
     }
-    return res.status(401).json({
-      status: login.status
-    });
-  } catch (error) {
-    console.log(error);
+  }
+
+  static async register(req: Request, res: Response) {
+    try {
+      const persona = req.body;
+      const result = await UserService.register(persona);
+      return res.status(201).json({
+        status: "Usuario registrado exitosamente",
+        data: result,
+      });
+    } catch (error) {
+      console.error("Error en el registro:", error);
+      return res.status(500).json({
+        status: "Error interno del servidor",
+      });
+    }
   }
 }
-
-
-export default auth;

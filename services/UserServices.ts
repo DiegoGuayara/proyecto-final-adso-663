@@ -1,19 +1,16 @@
-// import UserRepository from '../repositories/UserRepository';
-// import User from '../Dto/UserDto';
-// import generateHash from '../Helpers/generateHash';
-// import Auth from '../Dto/AuthDto';
+import { UserRepository } from "../repositories/UserRepository";
+import { PersonaDto } from "../Dto/PersonaDto";
+import { AuthDto } from "../Dto/AuthDto";
+import bcrypt from "bcryptjs";
 
+export class UserService {
+  static async register(user: PersonaDto) {
+    const hashedPassword = await bcrypt.hash(user.password!, 10);
+    user.password = hashedPassword;
+    return await UserRepository.add(user);
+  }
 
-// class UserService {
-    
-//     static async register(user: User) {
-//         user.password = await generateHash(user.password);
-//         return await UserRepository.add(user);
-//     }
-
-//     static async login(auth: Auth) {
-//         return await UserRepository.login(auth);
-//     }
-// }
-
-// export default UserService;
+  static async login(auth: AuthDto) {
+    return await UserRepository.login(auth);
+  }
+}
