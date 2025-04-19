@@ -1,5 +1,5 @@
 import pool from "../config/config-db";
-import { PersonaDto } from "../Dto/PersonaDto";
+import { PersonaDto } from "../Dto/personaDto";
 import bcrypt from "bcryptjs";
 
 export class PersonaRepository {

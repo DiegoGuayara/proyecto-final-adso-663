@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { PersonaDto } from "../Dto/PersonaDto";
+import { PersonaDto } from "../Dto/personaDto";
 import { UserService } from "../services/UserServices";
 
 export class RegisterController {

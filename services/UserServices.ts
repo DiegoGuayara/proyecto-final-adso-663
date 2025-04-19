@@ -1,5 +1,5 @@
 import { UserRepository } from "../repositories/UserRepository";
-import { PersonaDto } from "../Dto/PersonaDto";
+import { PersonaDto } from "../Dto/personaDto";
 import { AuthDto } from "../Dto/AuthDto";
 import bcrypt from "bcryptjs";
 
