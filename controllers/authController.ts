@@ -1,7 +1,7 @@
 import { Request, Response } from 'express';
 import { PersonaRepository } from '../repositories/PersonaRepository';
 import { AuthDto } from '../Dto/AuthDto';
-import { PersonaDto } from '../Dto/PersonaDto';
+import { PersonaDto } from '../Dto/personaDto';
 import jwt from 'jsonwebtoken';
 
 const personaRepository = new PersonaRepository();
