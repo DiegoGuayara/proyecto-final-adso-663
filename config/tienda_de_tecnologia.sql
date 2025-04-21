@@ -11,6 +11,7 @@ num_documento VARCHAR (20),
 direccion VARCHAR (70),
 telefono VARCHAR (20),
 email VARCHAR (50)
+password VARCHAR(250)
 );
 
 CREATE TABLE articulo (
