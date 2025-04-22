@@ -1,4 +1,4 @@
-export class PersonaDto {
+export class PersonasDto {
   id_persona?: number;
   tipo_persona: string;
   nombre: string;
@@ -7,7 +7,7 @@ export class PersonaDto {
   direccion: string;
   telefono: string;
   email: string;
-  password?: string; // Para el registro de usuarios
+  password?: string;
 
   constructor(
     tipo_persona: string,
@@ -28,14 +28,6 @@ export class PersonaDto {
     this.email = email;
     this.password = password;
   }
-}
 
-export class LoginDto {
-  email: string;
-  password: string;
 
-  constructor(email: string, password: string) {
-    this.email = email;
-    this.password = password;
-  }
 }
