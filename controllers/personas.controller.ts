@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { UserRepository } from "../repositories/userRepository";
+import { UserRepository } from "../repositories/UserRepository";
 import { PersonasDto } from "../Dto/personasDto";
 import { AuthDto } from "../Dto/AuthDto";
 import generateToken from "../Helpers/generateToken";
