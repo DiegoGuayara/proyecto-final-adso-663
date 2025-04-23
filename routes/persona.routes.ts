@@ -1,6 +1,6 @@
 import { Router } from "express";
 import { PersonasController } from "../controllers/personas.controller";
-import { verifyToken } from "../middleware/verifyToken";
+import { verifyToken } from "../middleware/VerifyToken";
 
 const personasController = new PersonasController();
 const router = Router();
